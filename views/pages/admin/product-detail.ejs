@@ -1,0 +1,56 @@
+<div class="m-2">
+  <div class="text-sm breadcrumbs">
+    <ul>
+      <li><a href="/">Home</a></li> 
+      <li><a href="/admin">Admin</a></li> 
+      <li><a href="/admin/products">Produkte</a></li>
+      <li><%= product.title %></li>
+    </ul>
+  </div>
+  <form class="mt-2" action="/admin/products/<%= product.id %>" method="POST">
+    <h3 class="font-bold text-lg">Produkt Detailansicht</h3>
+    <div class="form-control">
+        <label class="label">
+          <span class="label-text">Titel</span>
+        </label>
+        <label class="input-group">
+          <span>Titel</span>
+          <input type="text" placeholder="CUBE Mountainbike" class="input input-bordered" name="title" value="<%= product.title %>" />
+        </label>
+        <label class="label">
+            <span class="label-text">Preis</span>
+          </label>
+          <label class="input-group">
+            <span>Preis</span>
+            <input type="text" placeholder="10.99" class="input input-bordered" name="price" value="<%= product.price %>" />
+          </label>
+          <label class="label">
+            <span class="label-text">Inventar</span>
+          </label>
+          <label class="input-group">
+            <span>Inventar</span>
+            <input type="text" placeholder="2" class="input input-bordered" name="stock" value="<%= product.stock %>" />
+          </label>
+          <label class="label">
+            <span class="label-text">Kurzbeschreibung</span>
+          </label>
+          <label class="input-group">
+            <span>Kurzbeschreibung</span>
+            <input type="text" placeholder="2" class="input input-bordered" name="shortDescription" value="<%= product.shortDescription %>" />
+          </label>
+          <label class="label">
+            <span class="label-text">Beschreibung</span>
+          </label>
+          <label class="input-group">
+            <span>Beschreibung</span>
+            <input type="text" placeholder="2" class="input input-bordered" name="description" value="<%= product.description %>" />
+          </label>
+      </div>
+    <div class="modal-action">
+        <label for="addaccount-modal" class="btn btn-circle btn-outline">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </label>
+      <button for="addaccount-modal"  class="btn">Speichern</button>
+    </div>
+ </form>
+</div>

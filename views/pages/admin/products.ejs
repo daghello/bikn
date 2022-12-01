@@ -1,0 +1,151 @@
+<div class="px-4">
+  <div class="text-sm breadcrumbs">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/admin">Admin</a></li>
+      <li>Produkte</li>
+    </ul>
+  </div>
+  <div
+    class="flex flex-col w-full sm:flex-row lg:flex-row md:flex-row lg:space-x-1 md:space-y-0 space-y-1"
+  >
+    <form action="/admin/products/search" method="GET">
+      <div class="form-control grid flex-grow">
+        <div class="input-group">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search…"
+            class="input input-bordered"
+          >
+          <button class="btn btn-square" type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </form>
+    <label for="addaccount-modal" class="btn gap-2 grid"> Neues Produkt </label>
+  </div>
+  <div class="overflow-x-auto mt-2">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Preis</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(function(product){ %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.title %></td>
+          <td><%= product.price %></td>
+          <td class="space-x-1">
+            <a class="btn" href="/admin/products/<%= product.id %>"
+              ><i class="fa fa-pencil"></i></a
+            ><a
+              class="btn btn-secondary"
+              href="/admin/products/<%= product.id %>/delete"
+              ><i class="fa fa-trash"></i
+            ></a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  <!-- Modal Product Creation -->
+  <form action="/admin/products" method="POST">
+    <input type="checkbox" id="addaccount-modal" class="modal-toggle">
+    <div class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">Neues Produkt anlegen</h3>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Titel</span>
+          </label>
+          <label class="input-group">
+            <span>Titel</span>
+            <input
+              type="text"
+              placeholder="CUBE Mountainbike"
+              class="input input-bordered"
+              name="title"
+            >
+          </label>
+          <label class="label">
+            <span class="label-text">Preis</span>
+          </label>
+          <label class="input-group">
+            <span>Preis</span>
+            <input
+              type="text"
+              placeholder="10.99"
+              class="input input-bordered"
+              name="price"
+            >
+          </label>
+          <label class="label">
+            <span class="label-text">Inventar</span>
+          </label>
+          <label class="input-group">
+            <span>Inventar</span>
+            <input
+              type="text"
+              placeholder="2"
+              class="input input-bordered"
+              name="stock"
+            >
+          </label>
+          <label class="label">
+            <span class="label-text">Kurzbeschreibung</span>
+          </label>
+          <label class="input-group">
+            <span>Kurzbeschreibung</span>
+            <input
+              type="text"
+              placeholder="2"
+              class="input input-bordered"
+              name="shortDescription"
+            >
+          </label>
+        </div>
+        <div class="modal-action">
+          <label for="addaccount-modal" class="btn btn-circle btn-outline">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </label>
+          <label class="btn" for="addaccount-modal">Speichern</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,43 @@
+/*Webfonts*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Open+Sans+Condensed:300i');
+
+* {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-variant-ligatures: no-common-ligatures;
+    font-weight: 300;
+    margin: 0px;
+}
+
+/* body {
+    font-size: 1.5rem;
+} */
+
+header {
+    background-color: #394C60;
+    color: #EFECE7;
+}
+
+h1 {
+    padding: 10px;
+    color: #5f5f64;
+    font-size: 2.6em;
+}
+
+.bg-darkblue {
+    color: #EFECE7;
+    background-color: #394C60;
+}
+
+.fc-heading {
+    color: #6E7F91;
+}
+
+.fc-subheading {
+    color: #A38970;
+}
+
+.bg-secondary {
+    background-color: #CDCAC5;
+}
+
+
